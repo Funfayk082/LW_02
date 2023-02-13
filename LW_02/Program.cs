@@ -43,9 +43,9 @@ namespace LW_02
                     
                 }
             }
-            foreach (int i in mas1)
+            for (int i = 0; i<mas1.Length; i++)
             {
-                Console.WriteLine(i);
+                Console.Write(mas1[i]+" ");
             }
             Console.ReadLine();
         }
