@@ -7,11 +7,10 @@ namespace LW_02
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            int a;
             Console.WriteLine("Выберите способ задания массива (0 - рандом, 1 - руками):");
-            bool trying = int.TryParse(Console.ReadLine(), out a);
+            bool trying = int.TryParse(Console.ReadLine(), out int a);
             while (!trying)
             {
                 Console.WriteLine("Введено не число. Повторите попытку, введите 0 или 1: ");
@@ -19,8 +18,8 @@ namespace LW_02
             }
             while (a != 0 && a != 1)
             {
-                Console.WriteLine("Введите 0 или 1!", a);
-                int.TryParse(Console.ReadLine(), out a);
+                Console.WriteLine("Введите 0 или 1!"+a);
+                _ = int.TryParse(Console.ReadLine(), out a);
             }
             Console.WriteLine("Введите размеры массива через Enter: ");
             bool trying1 = int.TryParse(Console.ReadLine(), out int xSize);
@@ -33,7 +32,7 @@ namespace LW_02
             }
             int[,] mas = new int[ySize, xSize];
             int[] mas1 = new int[ySize];
-            Random rand = new Random();
+            Random rand = new();
             for (int i = 0; i < ySize; i++)
             {
                 for (int y = 0; y < xSize; y++)
@@ -54,7 +53,7 @@ namespace LW_02
                             while (!trying3)
                             {
                                 Console.WriteLine("Введено не число. Повторите попытку:  ");
-                                int.TryParse(Console.ReadLine(), out m);
+                                _ = int.TryParse(Console.ReadLine(), out m);
                             }
                             mas[i, y] = m;
                             if (mas[i, y] < 0 && (mas[i, y] % 3 == 0 || mas[i, y] % 7 == 0))
